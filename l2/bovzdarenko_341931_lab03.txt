@@ -1,0 +1,72 @@
+Imię i nazwisko: Adam Bovzdarenko 341931
+Język: Python
+Repozytorium GitHub: https://github.com/adambovzdarenko/gitoch/tree/master/l2
+commit: 
+
+Zadanie 1
+
+pełne wyniki: wynik_zad1.txt
+
+--- ECB ---
+  blok 1: a5ba2b6280d433bccfe6a0461cb88c4e
+  blok 2: a5ba2b6280d433bccfe6a0461cb88c4e
+  blok 3: a5ba2b6280d433bccfe6a0461cb88c4e
+  blok 4: a5ba2b6280d433bccfe6a0461cb88c4e
+  rowne bloki: 1=2, 1=3, 1=4, 2=3, 2=4, 3=4
+--- CBC ---
+  blok 1: 8193764967978c99f193855c3713f93f
+  blok 2: 2c80f8df95877417d891f22d2b881e2e
+  blok 3: fc0b27d1acf08454218e7f1348b0078a
+  blok 4: 68b783a0ed5587a320ae54380524845b
+  rowne bloki: brak
+
+Odpowiedzi:
+ECB: wszystkie cztery bloki kryptogramu są równe
+CBC: żadne bloki się nie powtarzają.
+
+Porównania po odszyfrowaniu: ECB =true, CBC też
+
+Wyjaśnienie: ECB szyfruje każdy blok niezależnie, więc identyczne bloki tekstu jawnego dają identyczne bloki kryptogramu, natomiast w CBC każdy blok przed szyfrowaniem jest XOR-owany z poprzednim blokiem kryptogramu (pierwszy z losowym IV), co ukrywa powtórzenia.
+
+
+
+Zadanie 2
+
+Wynik uruchomienia:
+Haslo testowe: 'HasloHasloLubieMaslo'
+PBKDF2-HMAC-SHA256, 200000 iteracji, klucz 32 B, sol 16 B, IV 16 B
+=== Testy ===
+[OK] puste dane: dane 0 B -> kryptogram 16 B (oczekiwano 16 B), rownosc bajtow: True
+[OK] 16 B '0123456789ABCDEF': dane 16 B -> kryptogram 32 B (oczekiwano 32 B), rownosc bajtow: True
+[OK] wiadomosc.txt: dane 247 B -> kryptogram 256 B (oczekiwano 256 B), rownosc bajtow: True
+Wszystkie testy zaliczone: True
+=== Dwukrotne szyfrowanie wiadomosci tym samym haslem ===
+Szyfrowanie 1: sol=b2e32522f04f9fdc80f0a90353dbc8ff IV=c3f214da89f1aa8b9eb667181004b893
+  kryptogram[:32]=f7df0d7e4c3ac1ebb69527f4fdac67e99175a03b003ac5b2602f8bde1820ee15...
+Szyfrowanie 2: sol=989ebcc49b3fc992ff27d006c9a22034 IV=18538d0a7627df9c5e0319a04fb617c6
+  kryptogram[:32]=f5413816ceb51ab6bd36fec24be73d8aee9f8a3a59334d76047fd351a4ed8ba9...
+Klucze rowne: False
+Kryptogramy rowne: False
+Zgodnych bajtow na tych samych pozycjach: 0/256
+Oba odszyfrowuja sie poprawnie: True
+
+Odpowiedzi:
+Test 1 -puste dane: 0 B -> kryptogram 16 B (cały blok dopełnienia), bajty zgodne - OK.
+Test 2 -16 B „0123456789ABCDEF”: 16 B -> kryptogram 32 B (dodatkowy pełny blok dopełnienia), bajty zgodne -> OK.
+Test 3 - wiadomosc.txt: 247 B -> kryptogram 256 B (9 B dopełnienia), bajty zgodne - OK.
+Dwukrotne szyfrowanie tym samym hasłem z nową solą i IV daje zupełnie różne kryptogramy, a oba poprawnie się odszyfrowują.
+Sól a IV: sól jest wejściem PBKDF2 i sprawia, że to samo hasło daje za każdym razem inny klucz (utrudnia ataki słownikowe i tablice tęczowe), natomiast IV jest wejściem trybu CBC i sprawia, że ten sam klucz i ten sam tekst dają inny kryptogram. obie wartości mogą być jawne i zapisane obok kryptogramu. CBC nie zapewnia integralności - do tego potrzebny byłby MAC (np. HMAC) lub tryb AEAD (GCM).
+
+pełne wyniki: wynik_zad3.txt
+
+Zadanie 3
+Top 5:
+  'm'  H = 4.4536
+  'b'  H = 7.9472
+  'x'  H = 7.9490
+  'o'  H = 7.9493
+  '2'  H = 7.9502
+Odzyskany znak klucza: 'm' (klucz mmmmmmmmmmmmmmmm)
+Pierwszy wiersz: Record 000. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+
+Kluczy jest tylko 36, bo cały 128-bitowy klucz jest wyznaczony przez jeden znak z 36-elementowego alfabetu, a ranking może zawieść dla danych skompresowanych, ponieważ ich poprawny tekst jawny ma również entropię bliską 8 bit/bajt - tak jak śmieci uzyskane złym kluczem - więc entropia przestaje je odróżniać.
