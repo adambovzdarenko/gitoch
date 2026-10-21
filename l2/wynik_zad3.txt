@@ -1,0 +1,48 @@
+Kryptogram: 13328 B
+Ranking wszystkich kandydatow:
+   1. 'm'  H = 4.4536
+   2. 'b'  H = 7.9472
+   3. 'x'  H = 7.9490
+   4. 'o'  H = 7.9493
+   5. '2'  H = 7.9502
+   6. 'a'  H = 7.9504
+   7. 'k'  H = 7.9519
+   8. 'q'  H = 7.9526
+   9. 'w'  H = 7.9533
+  10. '7'  H = 7.9537
+  11. 't'  H = 7.9538
+  12. 'c'  H = 7.9539
+  13. 'i'  H = 7.9541
+  14. '3'  H = 7.9543
+  15. 'e'  H = 7.9544
+  16. 'r'  H = 7.9545
+  17. 'u'  H = 7.9545
+  18. 'z'  H = 7.9545
+  19. '5'  H = 7.9547
+  20. 'g'  H = 7.9547
+  21. '8'  H = 7.9547
+  22. 's'  H = 7.9549
+  23. 'n'  H = 7.9549
+  24. '1'  H = 7.9551
+  25. 'h'  H = 7.9551
+  26. 'l'  H = 7.9556
+  27. '6'  H = 7.9561
+  28. '4'  H = 7.9565
+  29. 'y'  H = 7.9568
+  30. 'v'  H = 7.9571
+  31. 'f'  H = 7.9572
+  32. 'p'  H = 7.9573
+  33. 'j'  H = 7.9590
+  34. '0'  H = 7.9598
+  35. 'd'  H = 7.9603
+  36. '9'  H = 7.9605
+Top 5:
+  'm'  H = 4.4536
+  'b'  H = 7.9472
+  'x'  H = 7.9490
+  'o'  H = 7.9493
+  '2'  H = 7.9502
+Odzyskany znak klucza: 'm' (klucz mmmmmmmmmmmmmmmm)
+Tekst jawny: 13317 B, dopelnienie 11 B, znaki drukowalne: 100.00%
+Pierwszy wiersz: Record 000. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Zapisano: odszyfrowany_slaby_ecb.txt

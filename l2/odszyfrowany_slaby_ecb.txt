@@ -1,0 +1,110 @@
+Record 000. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 001. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 002. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 003. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 004. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 005. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 006. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 007. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 008. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 009. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 010. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 011. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 012. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 013. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 014. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 015. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 016. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 017. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 018. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 019. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 020. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 021. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 022. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 023. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 024. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 025. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 026. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 027. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 028. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 029. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 030. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 031. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 032. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 033. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 034. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 035. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 036. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 037. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 038. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 039. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 040. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 041. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 042. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 043. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 044. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 045. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 046. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 047. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 048. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 049. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 050. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 051. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 052. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 053. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 054. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 055. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 056. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 057. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 058. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 059. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 060. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 061. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 062. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 063. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 064. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 065. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 066. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 067. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 068. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 069. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 070. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 071. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 072. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 073. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 074. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 075. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 076. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 077. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 078. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 079. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 080. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 081. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 082. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 083. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 084. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 085. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 086. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 087. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 088. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 089. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 090. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 091. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 092. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 093. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 094. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 095. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 096. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 097. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 098. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 099. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 100. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 101. The reader should compare observations with assumptions and explain why the result may change for other data.
+Record 102. Compressed files may have a very different byte histogram. Entropy alone cannot recognize every valid message.
+Record 103. The purpose of this experiment is to study the choice of keys rather than to attack a properly generated AES key.
+Record 104. The archive contains laboratory notes about symmetric encryption and careful handling of binary files.
+Record 105. A block cipher transforms one block at a time. A mode of operation describes how to process a longer message.
+Record 106. Repeated blocks reveal structure in electronic codebook mode even when individual output bytes look irregular.
+Record 107. A password chosen from a tiny list remains easy to guess. Expensive derivation raises the cost of each guess.
+Record 108. A successful decoding test is useful evidence for this exercise but it does not establish authenticity.
+Record 109. The reader should compare observations with assumptions and explain why the result may change for other data.

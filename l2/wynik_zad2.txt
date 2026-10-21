@@ -1,0 +1,16 @@
+Haslo testowe: 'HasloHasloLubieMaslo'
+PBKDF2-HMAC-SHA256, 200000 iteracji, klucz 32 B, sol 16 B, IV 16 B
+Testy
+[OK] puste dane: dane 0 B -> kryptogram 16 B (oczekiwano 16 B), rownosc bajtow: True
+[OK] 16 B '0123456789ABCDEF': dane 16 B -> kryptogram 32 B (oczekiwano 32 B), rownosc bajtow: True
+[OK] wiadomosc.txt: dane 247 B -> kryptogram 256 B (oczekiwano 256 B), rownosc bajtow: True
+Wszystkie testy zaliczone: True
+Dwukrotne szyfrowanie wiadomosci tym samym haslem
+Szyfrowanie 1: sol=bf7f88660d53382d0e4225c218d0328b IV=254da667f3a6e6cd3c73e9cc2408dbe4
+  kryptogram[:32]=83bc488b11670bee6e4db49b25ab36fcace220f3e4a989c348ab4a29926df0de...
+Szyfrowanie 2: sol=de25c8eea3194de4eb28dea650be6ccb IV=4d5b42f398e3c24a829fc367760dc6f9
+  kryptogram[:32]=ae472c1ed218f9f91e72f6788864ef109143a928cadf22692231b372ed6e2bd2...
+Klucze rowne: False
+Kryptogramy rowne: False
+Zgodnych bajtow na tych samych pozycjach: 1/256
+Oba odszyfrowuja sie poprawnie: True
