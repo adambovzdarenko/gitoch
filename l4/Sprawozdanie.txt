@@ -1,0 +1,48 @@
+
+Imię i nazwisko: Adam Bovzdarenko
+Numer indeksu: 341931
+Język: python
+Link do repozytorium:
+Identyfikator commitu:
+
+Zadanie 1 - Sumy kontrolne
+
+Wyniki:
+dokumenty/budzet.csv: BŁĄD
+dokumenty/dane.bin: OK
+dokumenty/harmonogram.txt: BRAK
+dokumenty/kontakt.txt: OK
+dokumenty/regulamin.txt: OK
+SHA-256('Ala ma kota.') = 9b9ae722342758f4bb6a5dd94470ddfab3c95cda15186231f53bb4666e657605
+SHA-256('Ola ma kota.') = f7f49ccc3e7308f936f9cb71a792c3526663e9ddee89dc3e38fb83db4f308535
+Różniące się bity: 131 / 256
+[dod.] dane.bin naraz    = 64ed6afd9c6cb740d8b90d4bac77abb26365c82f24dfab3fdbce16cc50446fc3
+[dod.] dane.bin kawałkami= 64ed6afd9c6cb740d8b90d4bac77abb26365c82f24dfab3fdbce16cc50446fc3  zgodne: True
+
+Liczba różniących się bitów: 131 z 256 - efekt lawinowy: zmiana jednej litery zmienia około połowy bitów skrótu.
+Suma kontrolna zapisana obok pliku nie chroni przed celową podmianą, bo atakujący, który może podmienić plik, może też przeliczyć i podmienić zapisaną obok sumę; zamiast niej trzeba użyć HMAC z tajnym kluczem lub podpisu cyfrowego (albo pobrać sumę z niezależnego, zaufanego źródła).
+
+Dodatkowo: SHA-256 dane.bin liczony w kawałkach po 4096 B jest identyczny ze skrótem całego pliku (64ed6afd…46fc3).
+
+Zadanie 2 - Przechowywanie haseł
+
+Wyniki:
+weryfikuj('anna', 'Kasztan-2026') -> True
+weryfikuj('anna', 'kasztan-2026') -> False
+weryfikuj('piotr', 'Żółw na łące') -> True
+weryfikuj('kasia', 'Kasztan-2026') -> False
+test1: sól a208f55e…, skrót e3877a1d…
+test2: sól 05c565df…, skrót dedc276e…
+Sole równe: False; skróty równe: False
+weryfikuj(test1) -> True; weryfikuj(test2) -> True
+ 
+Sól sprawia, że te same hasła dają różne skróty, co uniemożliwia użycie gotowych tablic i łamanie wielu kont jednym obliczeniem, a liczba iteracji spowalnia każdą pojedynczą próbę zgadnięcia hasła, zwiększając koszt ataku słownikowego/siłowego.
+
+Zadanie 3 - Kolizje i paradoks urodzinowy
+
+Wyniki:
+h24(oryginał, v=0) = 9a8fd6; różnych h24 oryginału: 8186
+Znaleziona para: v_oryginał = 7282, v_zmieniony = 1761, h24 = aac6b9
+Warianty zmienionego z h24 równym h24 oryginału (v=0): 0
+
+Znalezienie dowolnej pary jest znacznie łatwiejsze, bo przy k wariantach z każdej strony porównujemy k·k par naraz (paradoks urodzinowy, ok. 2^(n/2) = 4096 prób dla n = 24), natomiast trafienie w jeden ustalony skrót wymaga średnio ok. 2^n ≈ 16,8 mln prób - stąd 8192 warianty dały kolizję, ale żaden nie trafił w h24 oryginału (oczekiwano 8192/2²⁴ ≈ 0,0005 trafień).

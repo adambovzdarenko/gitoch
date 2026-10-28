@@ -1,7 +1,7 @@
 Imię i nazwisko: Adam Bovzdarenko 341931
 Język: Python
-Repozytorium GitHub: https://github.com/adambovzdarenko/gitoch/tree/master/l2
-commit: 
+Repozytorium GitHub: https://github.com/adambovzdarenko/gitoch/tree/master/l3
+commit: e501bb8
 
 Zadanie 1
 
