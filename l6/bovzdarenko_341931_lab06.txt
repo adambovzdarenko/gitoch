@@ -3,7 +3,7 @@ LABORATORIUM 6 - CROSS-SITE SCRIPTING (XSS) - RAPORT
 Imię i nazwisko: Adam Bovzdarenko
 Numer indeksu:   341931
 Repozytorium:    https://github.com/adambovzdarenko/gitoch
-Commit:          
+Commit:          cac4964
 
 ZADANIE 1 - XSS ODBITY
 

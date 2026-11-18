@@ -1,0 +1,58 @@
+LABORATORIUM 7 - SQL INJECTION I CODE INJECTION
+Srodowisko: Docker (python:3.12-alpine, uzytkownik app, FS read-only), http://127.0.0.1:8080
+
+Imie: Adam Bovzdarenko
+Indeks: 341931
+link do repo: https://github.com/adambovzdarenko/gitoch
+id commitu: 
+
+ZADANIE 1 - SQL Injection (wersja podatna)
+Podatne miejsce: app.py, /sekret - klucz sklejany z zapytaniem:
+  "SELECT wlasciciel, sekret FROM sekrety WHERE klucz = '" + klucz + "'"
+Piec wejsc (liczba wierszy):
+  1. 1234                                                -> 1
+  2. '                                                   -> BLAD, 0 (OperationalError: unrecognized token: "'''")
+  3. ' OR '1'='1                                         -> 4 (wszystkie sekrety)
+  4. ' UNION SELECT type, name FROM sqlite_master WHERE type='table' --  -> 2 (table: sekrety, konta)
+  5. ' UNION SELECT login, rola FROM konta --            -> 2 (admin/administrator, anna/uzytkownik)
+Zapytanie po podstawieniu (atak 3):
+  SELECT wlasciciel, sekret FROM sekrety WHERE klucz = '' OR '1'='1'
+Druga tabela: konta; kolumny: login, rola, email.
+Wniosek: apostrof zamyka literal, a dopisana skladnia (OR, UNION) staje sie czescia zapytania.
+
+ZADANIE 2 - Zapytanie z parametrami
+Poprawka: staly SQL z parametrem i krotka wartosci:
+  db.execute("SELECT wlasciciel, sekret FROM sekrety WHERE klucz = ?", (klucz,))
+Szczegoly bledu -> app.logger.exception; uzytkownik widzi "Nieprawidlowe dane".
+Wejscie                              przed    po
+  1234                                 1        1
+  '                                    BLAD/0   0
+  ' OR '1'='1                          4        0
+  ' UNION ... sqlite_master --         2        0
+  ' UNION ... konta --                 2        0
+  d'Artagnan                           BLAD/0   1
+Zadne wejscie po poprawce nie zwraca cudzych danych ani komunikatu SQLite.
+Wniosek: SQL jest kompilowany przed podstawieniem wartosci, wiec wartosc parametru
+jest zawsze danymi, nie skladnia. Parametr NIE moze zastapic nazwy tabeli/kolumny.
+
+ZADANIE 3 - Code Injection w kalkulatorze
+Podatne miejsce: app.py, /kalkulator - wynik = eval(wyrazenie).
+Wejscia (wersja podatna):
+  __import__('os').listdir('/etc')   -> [passwd, shadow, os-release, ...]
+  open('/etc/os-release').read()     -> Alpine Linux v3.24 (VERSION_ID=3.24.4)
+  __import__('os').getuid()          -> 1000
+UID procesu aplikacji: 1000 (uzytkownik app, nie root).
+Poprawka: wlasny parser (re.fullmatch: liczba operator liczba), limit 100 znakow,
+operatory ze slownika +,-,*,/; bez eval/exec/compile; bledy -> HTTP 400.
+Testy po poprawce:
+  2+3            -> 200, 5.0
+  7 / 2          -> 200, 3.5
+  -1.5*4         -> 200, -6.0
+  1/0            -> 400 (dzielenie przez zero)
+  __import__('os').getuid()          -> 400
+  open('/etc/os-release').read()     -> 400
+  __import__('os').listdir('/etc')   -> 400
+  (puste pole ?wyrazenie=)           -> 400
+  /kalkulator bez parametru          -> 200 (formularz)
+Wniosek: lista dozwolonych operacji akceptuje tylko znana gramatyke; blokowanie slow
+(np. import) mozna obejsc innymi konstrukcjami (open, obiekty, metody).
